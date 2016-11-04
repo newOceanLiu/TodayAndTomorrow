@@ -1,0 +1,12 @@
+{
+  "name": "TodayAndTomorrow",
+  "version": "1.0.0",
+  "description": "Todo app to make better use of time",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/newOceanLiu/TodayAndTomorrow",
+    "type": "git"
+  },
+  "author": "newOceanLiu",
+  "license": "MIT"
+}
