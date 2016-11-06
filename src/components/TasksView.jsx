@@ -8,15 +8,18 @@ const TasksView = (props) => {
   if (props.name === 'Tomorrow') {
     addTask = <AddTask />;
   }
-  return (<div>
-    <h1>{title}</h1>
-    {addTask}
-    <TaskTable />
-  </div>);
+  return (
+    <div>
+      <h1>{title}</h1>
+      {addTask}
+      <TaskTable tasks={props.tasks} />
+    </div>
+  );
 };
 
 TasksView.propTypes = {
   name: PropTypes.string.isRequired,
+  tasks: PropTypes.arrayOf(React.PropTypes.object),
 };
 
 export default TasksView;

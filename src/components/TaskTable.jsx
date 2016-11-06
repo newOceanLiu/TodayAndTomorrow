@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ItemRow from './TaskRow';
 
-const TaskTable = () => (
-  <div>
-    <table>
-      <tbody>
-        <tr>
-          <th>Task</th>
-          <th>Time</th>
-          <th>Status</th>
-        </tr>
-        <ItemRow description="ai jiajia" time="4" finish="false" />
-        <ItemRow description="make cool app" time="3" finish="false" />
-        <ItemRow description="learn japanese" time="2" finish="false" />
-      </tbody>
-    </table>
-  </div>
-);
+const TaskTable = (props) => {
+  const rows = props.tasks.map((task, index) =>
+    <ItemRow
+      key={index}
+      description={task.des}
+      time={task.len}
+      finish={task.status}
+      priority={task.priority}
+    />
+  );
+  return (
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <th>Status</th>
+            <th>Task</th>
+            <th>Time</th>
+            <th>Priority</th>
+          </tr>
+          {rows}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+TaskTable.propTypes = {
+  tasks: PropTypes.arrayOf(React.PropTypes.object),
+};
 
 export default TaskTable;
